@@ -80,28 +80,24 @@ const createServiceOrder = async (req, res) => {
 
 const createServiceOrderByServiceById = async (req, res) => {
     try {
-        const { orderDate, customerId, service_price, slot_service } = req.body;
+        const { order_time, customerId, service_price, slot_service } = req.body;
         const { serviceId } = req.params;
-
-        // Tìm cửa hàng chứa dịch vụ với ID serviceId
         const store = await Store.findOne({ "services._id": serviceId });
 
         const user = await userModel.findById(customerId);
 
-        // console.log(store);
+         console.log(order_time);
 
         if (!store) {
             return res.status(404).json({ message: "Service not found" });
         }
 
-        // Lấy dịch vụ từ mảng services trong store
         const service = store.services.find(s => s._id.toString() === serviceId);
 
         if (!service) {
             return res.status(404).json({ message: "Service not found in the store" });
         }
 
-        // Kiểm tra thông tin từ body
         if (!service_price || !slot_service) {
             return res.status(400).json({ message: "Service price and slot service are required" });
         }
@@ -118,7 +114,7 @@ const createServiceOrderByServiceById = async (req, res) => {
                 service_price,  // Giá dịch vụ từ body
                 slot_service,   // Slot dịch vụ từ body
             },
-            orderDate,
+            orderDate: order_time,
             status: "Pending"
         });
 
@@ -129,7 +125,7 @@ const createServiceOrderByServiceById = async (req, res) => {
             order: newOrder,
             service_name: service.service_name,
             store_name: store.nameShop,
-            date: orderDate
+            date: order_time
         };
 
         res.status(201).json(authCode);  // Trả về authCode như là phản hồi

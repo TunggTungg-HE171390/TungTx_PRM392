@@ -50,10 +50,12 @@ const CreateOrder = ({ route, navigation }) => {
   };
 
   // Handle time selection from DateTimePicker
-  const onTimeChange = (event, selectedDate) => {
-    const currentTime = selectedDate || new Date();
+  const onTimeChange = (event, selectedDateTime) => {
+    const currentTime = selectedDateTime || new Date();
     setShowTimePicker(false);
-    setOrderTime(currentTime.toLocaleTimeString());
+    
+    // Lưu thời gian đã chọn với định dạng hệ thống
+    setOrderTime(currentTime.toLocaleTimeString()); // Chỉ lấy giờ, phút và giây
   };
 
   // Combine date and time into a single order_time
@@ -61,10 +63,12 @@ const CreateOrder = ({ route, navigation }) => {
     if (!selectedDate || !orderTime) {
       return null;
     }
+
     const date = new Date(selectedDate);
     const [hours, minutes] = orderTime.split(':');
     date.setHours(parseInt(hours, 10), parseInt(minutes, 10)); // Set hours and minutes
-    return date.toISOString(); // Return in ISO format
+
+    return date.toISOString(); // Chuyển đổi thành ISO string để gửi yêu cầu
   };
 
   // Handle creating order
@@ -222,9 +226,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 16,
     borderRadius: 5,
-  },
-  calendarContainer: {
-    marginBottom: 20,
   },
   button: {
     backgroundColor: '#ff6b6b',
