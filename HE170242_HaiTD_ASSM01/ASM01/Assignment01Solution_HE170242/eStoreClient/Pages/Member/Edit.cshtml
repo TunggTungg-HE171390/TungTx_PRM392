@@ -1,0 +1,46 @@
+﻿@page
+@model eStoreClient.Pages.Member.EditModel
+@{
+}
+<h1>Update Member</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="text-danger" id="validation-summary"></div>
+            <div class="form-group">
+                <label for="MemberId" class="control-label">Member Id</label>
+                <input id="MemberId" name="MemberId" class="form-control" value="@Model.member.MemberId" readonly />
+                <span class="text-danger" id="ProductId-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="Email" class="control-label">Member Email</label>
+                <input id="Email" name="Email" class="form-control" value="@Model.member.Email" />
+                <span class="text-danger" id="Email-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="CompanyName" class="control-label">Company Name</label>
+                <input id="CompanyName" name="CompanyName" class="form-control" value="@Model.member.CompanyName" />
+                <span class="text-danger" id="CompanyName-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="City" class="control-label">City</label>
+                <input id="City" name="City" class="form-control" value="@Model.member.City" />
+                <span class="text-danger" id="City-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="Country" class="control-label">Country</label>
+                <input id="Country" name="Country" class="form-control" value="@Model.member.Country" />
+                <span class="text-danger" id="Country-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="Passsword" class="control-label">Passsword</label>
+                <input id="Passsword" name="Passsword" class="form-control" value="@Model.member.Passsword" />
+                <span class="text-danger" id="Passsword-validation"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

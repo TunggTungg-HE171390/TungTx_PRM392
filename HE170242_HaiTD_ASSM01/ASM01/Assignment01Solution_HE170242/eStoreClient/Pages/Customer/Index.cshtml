@@ -1,0 +1,53 @@
+﻿@page
+@model eStoreClient.Pages.Customer.IndexModel
+@{
+}
+<h1>Member Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            MemberId
+        </dt>
+        <dd class="col-sm-10">
+            @Model.member.MemberId
+        </dd>
+        <dt class="col-sm-2">
+            Member Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.member.Email
+        </dd>
+        <dt class="col-sm-2">
+            Company Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.member.CompanyName
+        </dd>
+        <dt class="col-sm-2">
+            City
+        </dt>
+        <dd class="col-sm-10">
+            @Model.member.City
+        </dd>
+        <dt class="col-sm-2">
+            Country
+        </dt>
+        <dd class="col-sm-10">
+            @Model.member.Country
+        </dd>
+        <dt class="col-sm-2">
+            Password
+        </dt>
+        <dd class="col-sm-10">
+            @(Model.member.Passsword != null
+                ? new string('*', Model.member.Passsword.Length)
+                : "")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a href="/Customer/Edit?id=@Model.member.MemberId">Edit</a> |
+</div>

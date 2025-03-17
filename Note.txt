@@ -1,0 +1,13 @@
+before run API in cmd: dotnet tool install -g microsoft.dotnet-httprepl
+
+run API in cmd: httprepl http://localhost: 5182/api/TodoItems
+
+GET list: get
+
+Get detail: get ./{id}
+
+Insert POST: post -h content-type=application/json -c "{\"title\":\"Slot 2\", \"iscomplete\":false}"
+
+upate PUT: put 2 -c "{\"id\":2, \"title\":\"slot2\", \"iscomplete\":false}"
+
+delete DELETE: delete {id}

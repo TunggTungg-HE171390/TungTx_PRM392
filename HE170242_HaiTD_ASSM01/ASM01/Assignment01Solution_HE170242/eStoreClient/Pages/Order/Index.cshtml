@@ -1,0 +1,60 @@
+﻿@page
+@model eStoreClient.Pages.Order.IndexModel
+@{
+}
+<h1>Order</h1>
+
+<p>
+    <a href="/Order/Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                OrderId
+            </th>
+            <th>
+                MemberId
+            </th>
+            <th>
+                OrderDate
+            </th>
+            <th>
+                Require Date
+            </th>
+            <th>
+                Shipped Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.listOrder != null)
+        {
+            @foreach (var item in Model.listOrder)
+            {
+                <tr>
+                    <td>
+                        @item.OrderId
+                    </td>
+                    <td>
+                        @item.MemberId
+                    </td>
+                    <td>
+                        @item.OrderDate
+                    </td>
+                    <td>
+                        @item.RequiredDate
+                    </td>
+                    <td>
+                        @item.ShippedDate
+                    </td>
+                    <td>
+                        <a href="/Order/Details?id=@item.OrderId">Details</a> |
+                        <a href="/Order/Delete?id=@item.OrderId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

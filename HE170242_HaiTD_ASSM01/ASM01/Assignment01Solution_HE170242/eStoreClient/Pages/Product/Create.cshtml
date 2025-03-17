@@ -1,0 +1,46 @@
+﻿@page
+@model eStoreClient.Pages.Product.CreateModel
+@{
+}
+<h1>Create Product</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="text-danger" id="validation-summary"></div>
+            <div class="form-group">
+                <label for="productName" class="control-label">Product Name</label>
+                <input id="productName" type="text" name="productName" class="form-control" />
+                <span class="text-danger" id="Email-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="categoryID" class="control-label">CateogoryId</label>
+                <select name="categoryID" class="form-control">
+                    @foreach(var cate in Model.categories)
+                    {
+                        <option value="@cate.CategoryId">@cate.CategoryName</option>
+                    }
+                </select>
+                <span class="text-danger" id="categoryID-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="Weight" class="control-label">Weight</label>
+                <input id="Weight" name="Weight" class="form-control" />
+                <span class="text-danger" id="Weight-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="UnitInStock" class="control-label">UnitInStock</label>
+                <input id="UnitInStock" name="UnitInStock" class="form-control" />
+                <span class="text-danger" id="UnitInStock-validation"></span>
+            </div>
+            <div class="form-group">
+                <label for="UnitPrice" class="control-label">UnitPrice</label>
+                <input id="UnitPrice" name="UnitPrice" class="form-control" />
+                <span class="text-danger" id="UnitPrice-validation"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

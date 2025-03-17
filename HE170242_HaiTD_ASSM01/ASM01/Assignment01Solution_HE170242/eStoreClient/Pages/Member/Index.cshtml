@@ -1,0 +1,60 @@
+﻿@page "/Member"
+@model eStoreClient.Pages.Member.IndexModel
+@{
+}
+<h1>Member</h1>
+
+<p>
+    <a href="/Member/Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                MemberID
+            </th>
+            <th>
+                MemberEmail
+            </th>
+            <th>
+                Company Name
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Country
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.listMember != null)
+        {
+            @foreach (var item in Model.listMember)
+            {
+                <tr>
+                    <td>
+                        @item.MemberId
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.CompanyName
+                    </td>
+                    <td>
+                        @item.City
+                    </td>
+                    <td>
+                        @item.Country
+                    </td>
+                    <td>
+                        <a href="/Member/Details?id=@item.MemberId">Details</a> |
+                        <a href="/Member/Delete?id=@item.MemberId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

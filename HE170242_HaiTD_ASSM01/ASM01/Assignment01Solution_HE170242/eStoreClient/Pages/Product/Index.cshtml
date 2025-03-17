@@ -1,0 +1,66 @@
+﻿@page
+@model eStoreClient.Pages.Product.IndexModel
+@{
+}
+<h1>Product</h1>
+
+<p>
+    <a href="/Product/Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ProductID
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                CategoryId
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Unit Price
+            </th>
+            <th>
+                Unit In Stock
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.listProduct != null)
+        {
+            @foreach (var item in Model.listProduct)
+            {
+                <tr>
+                    <td>
+                        @item.ProductId
+                    </td>
+                    <td>
+                        @item.ProductName
+                    </td>
+                    <td>
+                        @item.CategoryId
+                    </td>
+                    <td>
+                        @item.Weight
+                    </td>
+                    <td>
+                        @item.UnitPrice
+                    </td>
+                    <td>
+                        @item.UnitInStock
+                    </td>
+                    <td>
+                        <a href="/Product/Details?id=@item.ProductId">Details</a> |
+                        <a href="/Product/Delete?id=@item.ProductId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
