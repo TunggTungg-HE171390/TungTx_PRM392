@@ -1,4 +1,0 @@
-generate migration: (run in terminal)
-dotnet ef migrations add InitialMigrations -o Db/Migrations
-
-update database: dotnet ef database update
